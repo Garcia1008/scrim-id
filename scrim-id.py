@@ -74,7 +74,7 @@ class Bot(commands.Bot):
     async def scrim(self, ctx):
         """Empieza el scrim"""
         self.games = {}
-        self.embed = None
+        self.msg = None
         em = discord.Embed(
             title='Empienza la partida',
             description='Presione listo cuando la cuenta regresiva llegue a cero.',
