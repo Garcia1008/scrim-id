@@ -72,6 +72,7 @@ class Bot(commands.Bot):
     async def scrim(self, ctx):
         """Empieza el scrim"""
         self.games = {}
+        self.embed = None
         em = discord.Embed(
             title='Empienza la partida',
             description='Presione listo cuando la cuenta regresiva llegue a cero.',
@@ -81,7 +82,7 @@ class Bot(commands.Bot):
         await self.get_channel(478339552814301185).send(embed=em)
         await self.get_channel(478339552814301185).send('Escribe los ultimos 3 digitos de tu partida.')
         self.checking_ids = True
-        await asyncio.sleep(60)
+        await asyncio.sleep(120)
         if not self.checking_ids:  # used stop command
             return
         self.checking_ids = False
