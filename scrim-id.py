@@ -49,6 +49,8 @@ class Bot(commands.Bot):
             if not self.games.get(msg.content.lower()):
                 self.games[msg.content.lower()] = [msg.author.id]
             else:
+                if msg.author.id in self.games[msg.content.lower()]:
+                    return await msg.delete()
                 self.games[msg.content.lower()].append(msg.author.id)
             await msg.delete()
             await self.update_embed()
